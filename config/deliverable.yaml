@@ -1,0 +1,16 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: spring-sensors-delivery
+  namespace: default
+spec:
+  serviceAccountName: default
+  fetch:
+    - git:
+        url: https://github.com/akinsanyaleke/ops-spring-sensors
+        ref: origin/deliverable
+        #subPath: ns-rbac
+  template:
+    - ytt: {}
+  deploy:
+    - kapp: {}
